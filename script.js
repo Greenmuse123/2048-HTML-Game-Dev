@@ -2,8 +2,6 @@ const boardSize = 4;
 let board = [];
 let score = 0;
 let moved = false;
-let firstMove = true;
-
 
 document.addEventListener('DOMContentLoaded', () => {
     initBoard();
@@ -45,7 +43,7 @@ function getTileColor(value) {
     return colors[value] || '#cdc1b4';
 }
 
-ffunction addNewTile() {
+function addNewTile() {
     let added = false;
     while (!added) {
         let row = Math.floor(Math.random() * boardSize);
@@ -56,16 +54,10 @@ ffunction addNewTile() {
         }
     }
     drawBoard();
-    
-    // Only check for game over after the first move
-    if (!firstMove) {
-        if (isGameOver()) {
-            showGameOver();
-        }
+    if (isGameOver()) {
+        showGameOver();
     }
-    firstMove = false;  // Set the flag to false after the first move
 }
-
 
 document.addEventListener('keydown', (event) => {
     moved = false;
@@ -201,13 +193,14 @@ function moveRight() {
 }
 
 function updateScore() {
-    document.getElementById('score').textContent = `Score: ${score}`;
+    document.getElementById('score').textContent = Score: ${score};
 }
 
 function showGameOver() {
     console.log("Showing Game Over");
     const gameOverElement = document.getElementById('game-over');
     gameOverElement.classList.remove('hidden');
+    gameOverElement.style.display = 'flex'; // Ensure it's visible
 }
 
 function hideGameOver() {
@@ -240,6 +233,3 @@ function isGameOver() {
     }
     return true;
 }
-
-
-
