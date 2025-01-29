@@ -54,9 +54,6 @@ function addNewTile() {
         }
     }
     drawBoard();
-    if (isGameOver()) {
-        showGameOver();
-    }
 }
 
 document.addEventListener('keydown', (event) => {
@@ -193,21 +190,21 @@ function moveRight() {
 }
 
 function updateScore() {
-    document.getElementById('score').textContent = Score: ${score};
+    document.getElementById('score').textContent = `Score: ${score}`;
 }
 
 function showGameOver() {
     console.log("Showing Game Over");
     const gameOverElement = document.getElementById('game-over');
     gameOverElement.classList.remove('hidden');
-    gameOverElement.style.display = 'flex'; // Ensure it's visible
+    gameOverElement.style.display = 'flex';
 }
 
 function hideGameOver() {
     console.log("Hiding Game Over");
     const gameOverElement = document.getElementById('game-over');
     gameOverElement.classList.add('hidden');
-    gameOverElement.style.display = 'none'; // Ensure it's hidden
+    gameOverElement.style.display = 'none';
 }
 
 function restartGame() {
@@ -225,9 +222,7 @@ function isGameOver() {
     for (let row = 0; row < boardSize; row++) {
         for (let col = 0; col < boardSize; col++) {
             if (board[row][col] === 0) return false;
-            if (row > 0 && board[row][col] === board[row - 1][col]) return false;
             if (row < boardSize - 1 && board[row][col] === board[row + 1][col]) return false;
-            if (col > 0 && board[row][col] === board[row][col - 1]) return false;
             if (col < boardSize - 1 && board[row][col] === board[row][col + 1]) return false;
         }
     }
