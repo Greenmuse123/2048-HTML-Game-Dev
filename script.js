@@ -2,6 +2,8 @@ const boardSize = 4;
 let board = [];
 let score = 0;
 let moved = false;
+let firstMove = true;
+
 
 document.addEventListener('DOMContentLoaded', () => {
     initBoard();
@@ -43,7 +45,7 @@ function getTileColor(value) {
     return colors[value] || '#cdc1b4';
 }
 
-function addNewTile() {
+ffunction addNewTile() {
     let added = false;
     while (!added) {
         let row = Math.floor(Math.random() * boardSize);
@@ -54,7 +56,16 @@ function addNewTile() {
         }
     }
     drawBoard();
+    
+    // Only check for game over after the first move
+    if (!firstMove) {
+        if (isGameOver()) {
+            showGameOver();
+        }
+    }
+    firstMove = false;  // Set the flag to false after the first move
 }
+
 
 document.addEventListener('keydown', (event) => {
     moved = false;
