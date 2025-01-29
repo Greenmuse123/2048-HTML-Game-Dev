@@ -54,9 +54,6 @@ function addNewTile() {
         }
     }
     drawBoard();
-    if (isGameOver()) {
-        showGameOver();
-    }
 }
 
 document.addEventListener('keydown', (event) => {
