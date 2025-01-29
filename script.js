@@ -208,7 +208,6 @@ function showGameOver() {
     console.log("Showing Game Over");
     const gameOverElement = document.getElementById('game-over');
     gameOverElement.classList.remove('hidden');
-    gameOverElement.style.display = 'flex'; // Ensure it's visible
 }
 
 function hideGameOver() {
