@@ -1,4 +1,4 @@
-body {
+ body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,7 +88,6 @@ h1 {
     align-items: center;
     color: #fff;
     font-size: 2em;
-     display: none;  /* Ensures it's hidden by default */
 }
 
 .hidden {
